@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexus — Entrar / Criar Conta</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="auth-page">
+  <!-- LEFT SIDE -->
+  <div class="auth-left">
+    <div class="auth-left-bg"></div>
+    <div class="auth-left-content">
+      <a href="index.html" class="nav-logo" style="margin-bottom:48px;display:inline-flex">
+        <div class="nav-logo-icon">⚡</div>
+        Nexus
+      </a>
+      <h2>A plataforma que<br><span class="grad-text">transforma negócios</span></h2>
+      <p>Junte-se a mais de 10.000 empresas que usam o Nexus para crescer com inteligência e agilidade.</p>
+      <div class="auth-features">
+        <div class="auth-feature">
+          <div class="auth-feature-icon">📊</div>
+          <div class="auth-feature-text">
+            <h4>Analytics em tempo real</h4>
+            <p>Dashboards poderosos com insights instantâneos</p>
+          </div>
+        </div>
+        <div class="auth-feature">
+          <div class="auth-feature-icon">🤖</div>
+          <div class="auth-feature-text">
+            <h4>Automação com IA</h4>
+            <p>Economize horas com fluxos automatizados</p>
+          </div>
+        </div>
+        <div class="auth-feature">
+          <div class="auth-feature-icon">🔒</div>
+          <div class="auth-feature-text">
+            <h4>Segurança garantida</h4>
+            <p>Criptografia e conformidade com LGPD</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="auth-right">
+    <div class="auth-right-inner">
+      <a href="index.html" class="auth-logo">
+        <div class="auth-logo-icon">⚡</div>
+        Nexus
+      </a>
+
+      <!-- TABS -->
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tab-login" onclick="switchTab('login')">Entrar</button>
+        <button class="auth-tab" id="tab-register" onclick="switchTab('register')">Criar conta</button>
+      </div>
+
+      <!-- ALERT -->
+      <div class="alert alert-error" id="alert-error">
+        <span>&#9888;</span> <span id="alert-error-msg"></span>
+      </div>
+      <div class="alert alert-success" id="alert-success">
+        <span>&#10003;</span> <span id="alert-success-msg"></span>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <form id="form-login" onsubmit="handleLogin(event)">
+        <div class="auth-title">Bem-vindo de volta</div>
+        <div class="auth-subtitle">Entre na sua conta para continuar</div>
+
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-input" id="login-email" placeholder="seu@email.com" required />
+          <div class="form-error" id="login-email-error"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">
+            Senha
+            <a href="#" class="form-forgot">Esqueceu a senha?</a>
+          </label>
+          <input type="password" class="form-input" id="login-password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required />
+          <div class="form-error" id="login-password-error"></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg form-submit" id="btn-login">
+          Entrar na conta
+        </button>
+
+        <p class="form-footer">
+          Nao tem conta? <a href="#" onclick="switchTab('register')">Criar gratuitamente</a>
+        </p>
+      </form>
+
+      <!-- REGISTER FORM -->
+      <form id="form-register" onsubmit="handleRegister(event)" style="display:none">
+        <div class="auth-title">Criar sua conta</div>
+        <div class="auth-subtitle">14 dias gratis. Sem cartao de credito.</div>
+
+        <div class="form-group">
+          <label class="form-label">Nome completo</label>
+          <input type="text" class="form-input" id="reg-name" placeholder="Joao Silva" required />
+          <div class="form-error" id="reg-name-error"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-input" id="reg-email" placeholder="seu@email.com" required />
+          <div class="form-error" id="reg-email-error"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Senha</label>
+          <input type="password" class="form-input" id="reg-password" placeholder="Minimo 6 caracteres" required />
+          <div class="form-error" id="reg-password-error"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Confirmar senha</label>
+          <input type="password" class="form-input" id="reg-confirm" placeholder="Repita a senha" required />
+          <div class="form-error" id="reg-confirm-error"></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg form-submit" id="btn-register">
+          Criar conta gratis
+        </button>
+
+        <p class="form-footer">
+          Ja tem conta? <a href="#" onclick="switchTab('login')">Entrar</a>
+        </p>
+        <p style="text-align:center;font-size:12px;color:var(--text3);margin-top:12px">
+          Ao criar conta voce concorda com os <a href="#" style="color:var(--text2)">Termos de Uso</a> e <a href="#" style="color:var(--text2)">Privacidade</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="js/auth.js"></script>
+</body>
+</html>

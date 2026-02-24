@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": 1771892105183,
+      "name": "Fernando",
+      "email": "fernando@gmail.com",
+      "passwordHash": "$2a$10$Opqb6Pai5WX8SzSv6qcMueUoV1TCuDuteOuxOyy.J.4wNh917sM4e",
+      "plan": "starter",
+      "createdAt": "2026-02-24T00:15:05.255Z"
+    }
+  ],
+  "sessions": [
+    {
+      "userId": 1771892105183,
+      "action": "registered",
+      "createdAt": "2026-02-24T00:15:05.255Z"
+    }
+  ]
+}

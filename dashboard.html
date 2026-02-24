@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexus — Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="dashboard-layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-icon">&#9889;</div>
+      Nexus
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="sidebar-section">Principal</div>
+      <div class="sidebar-item active" onclick="showSection('overview')">
+        <span class="sidebar-item-icon">&#9741;</span> Overview
+      </div>
+      <div class="sidebar-item" onclick="showSection('analytics')">
+        <span class="sidebar-item-icon">&#128202;</span> Analytics
+      </div>
+      <div class="sidebar-item" onclick="showSection('automations')">
+        <span class="sidebar-item-icon">&#129302;</span> Automacoes
+      </div>
+      <div class="sidebar-section">Configuracoes</div>
+      <div class="sidebar-item" onclick="showSection('profile')">
+        <span class="sidebar-item-icon">&#128100;</span> Perfil
+      </div>
+      <div class="sidebar-item" onclick="showSection('settings')">
+        <span class="sidebar-item-icon">&#9881;</span> Configuracoes
+      </div>
+    </nav>
+
+    <div class="sidebar-user">
+      <div class="sidebar-avatar" id="sidebar-avatar">U</div>
+      <div>
+        <div class="sidebar-user-name" id="sidebar-name">Carregando...</div>
+        <div class="sidebar-user-plan" id="sidebar-plan">Plano Starter</div>
+      </div>
+      <button class="sidebar-logout" onclick="logout()" title="Sair">&#128682;</button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- OVERVIEW SECTION -->
+    <div id="section-overview" class="profile-section active">
+      <div class="dash-header">
+        <div class="dash-greeting">
+          <h1>Bom dia, <span id="greeting-name">Usuario</span>! &#128075;</h1>
+          <p>Aqui esta um resumo do seu desempenho hoje.</p>
+        </div>
+        <div class="dash-date" id="dash-date">Carregando...</div>
+      </div>
+
+      <div class="dash-stats">
+        <div class="dash-stat-card">
+          <div class="dash-stat-top">
+            <div class="dash-stat-icon purple">&#128202;</div>
+            <span class="dash-stat-change">+12.5%</span>
+          </div>
+          <div class="dash-stat-val">R$ 24.8k</div>
+          <div class="dash-stat-label">Receita do mes</div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="dash-stat-top">
+            <div class="dash-stat-icon blue">&#128101;</div>
+            <span class="dash-stat-change">+8.2%</span>
+          </div>
+          <div class="dash-stat-val">1,284</div>
+          <div class="dash-stat-label">Usuarios ativos</div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="dash-stat-top">
+            <div class="dash-stat-icon green">&#9889;</div>
+            <span class="dash-stat-change">-2.1%</span>
+          </div>
+          <div class="dash-stat-val">98.7%</div>
+          <div class="dash-stat-label">Taxa de conversao</div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="dash-stat-top">
+            <div class="dash-stat-icon cyan">&#127759;</div>
+            <span class="dash-stat-change">+4.7%</span>
+          </div>
+          <div class="dash-stat-val" id="login-count">0</div>
+          <div class="dash-stat-label">Seus logins</div>
+        </div>
+      </div>
+
+      <div class="dash-grid">
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <span class="dash-card-title">Atividade Recente</span>
+            <span class="dash-card-action">Ver tudo</span>
+          </div>
+          <div class="activity-list">
+            <div class="activity-item">
+              <div class="activity-icon">&#128273;</div>
+              <div class="activity-text">
+                <div class="activity-title">Login realizado com sucesso</div>
+                <div class="activity-time" id="last-login-time">Agora</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon">&#9881;</div>
+              <div class="activity-text">
+                <div class="activity-title">Perfil criado</div>
+                <div class="activity-time" id="account-created">-</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon">&#128640;</div>
+              <div class="activity-text">
+                <div class="activity-title">Plano Starter ativado</div>
+                <div class="activity-time">Ao criar a conta</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon">&#9889;</div>
+              <div class="activity-text">
+                <div class="activity-title">14 dias de teste gratuito iniciado</div>
+                <div class="activity-time">Expira em 14 dias</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <span class="dash-card-title">Seu Plano</span>
+          </div>
+          <div class="plan-card-inner">
+            <div class="plan-icon">&#128640;</div>
+            <div class="plan-name" id="plan-name">Starter</div>
+            <div class="plan-desc">14 dias de teste gratuito</div>
+            <ul class="plan-features">
+              <li>Ate 5 usuarios</li>
+              <li>10GB de armazenamento</li>
+              <li>Dashboards basicos</li>
+              <li>Suporte por email</li>
+            </ul>
+            <a href="index.html#pricing" class="btn btn-primary" style="width:100%;justify-content:center">
+              Fazer upgrade &#8594;
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANALYTICS SECTION -->
+    <div id="section-analytics" class="profile-section">
+      <div class="dash-header">
+        <div class="dash-greeting">
+          <h1>Analytics &#128202;</h1>
+          <p>Visualize o desempenho da sua conta.</p>
+        </div>
+      </div>
+      <div class="dash-card" style="margin-bottom:24px">
+        <div class="dash-card-header"><span class="dash-card-title">Grafico de Performance (simulado)</span></div>
+        <div style="display:flex;align-items:flex-end;gap:8px;height:160px;padding:16px 0">
+          <div class="bar" style="height:40%;flex:1;border-radius:6px"></div>
+          <div class="bar" style="height:65%;flex:1;border-radius:6px"></div>
+          <div class="bar" style="height:50%;flex:1;border-radius:6px"></div>
+          <div class="bar" style="height:80%;flex:1;border-radius:6px"></div>
+          <div class="bar" style="height:60%;flex:1;border-radius:6px"></div>
+          <div class="bar" style="height:90%;flex:1;border-radius:6px"></div>
+          <div class="bar" style="height:75%;flex:1;border-radius:6px"></div>
+          <div class="bar" style="height:100%;flex:1;border-radius:6px"></div>
+          <div class="bar" style="height:85%;flex:1;border-radius:6px"></div>
+          <div class="bar" style="height:70%;flex:1;border-radius:6px"></div>
+          <div class="bar" style="height:95%;flex:1;border-radius:6px"></div>
+          <div class="bar" style="height:88%;flex:1;border-radius:6px"></div>
+        </div>
+      </div>
+      <div class="dash-stats">
+        <div class="dash-stat-card"><div class="dash-stat-top"><div class="dash-stat-icon purple">&#128202;</div></div><div class="dash-stat-val">2,847</div><div class="dash-stat-label">Visualizacoes</div></div>
+        <div class="dash-stat-card"><div class="dash-stat-top"><div class="dash-stat-icon blue">&#127919;</div></div><div class="dash-stat-val">12.4%</div><div class="dash-stat-label">Taxa de conversao</div></div>
+        <div class="dash-stat-card"><div class="dash-stat-top"><div class="dash-stat-icon green">&#9201;</div></div><div class="dash-stat-val">3m 24s</div><div class="dash-stat-label">Tempo medio</div></div>
+      </div>
+    </div>
+
+    <!-- AUTOMATIONS SECTION -->
+    <div id="section-automations" class="profile-section">
+      <div class="dash-header">
+        <div class="dash-greeting">
+          <h1>Automacoes &#129302;</h1>
+          <p>Gerencie seus fluxos automatizados.</p>
+        </div>
+        <button class="btn btn-primary btn-sm">+ Nova automacao</button>
+      </div>
+      <div class="dash-card">
+        <div style="text-align:center;padding:60px 0;color:var(--text3)">
+          <div style="font-size:48px;margin-bottom:16px">&#129302;</div>
+          <h3 style="color:var(--text2);margin-bottom:8px">Nenhuma automacao criada ainda</h3>
+          <p style="font-size:14px;margin-bottom:24px">Crie sua primeira automacao para economizar horas de trabalho.</p>
+          <button class="btn btn-primary">Criar automacao</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROFILE SECTION -->
+    <div id="section-profile" class="profile-section">
+      <div class="dash-header">
+        <div class="dash-greeting">
+          <h1>Meu Perfil &#128100;</h1>
+          <p>Gerencie suas informacoes pessoais.</p>
+        </div>
+      </div>
+      <div class="dash-card" style="max-width:560px">
+        <div class="dash-card-header"><span class="dash-card-title">Informacoes da Conta</span></div>
+
+        <div class="alert alert-error" id="profile-alert-error" style="margin-bottom:16px">
+          <span>&#9888;</span> <span id="profile-error-msg"></span>
+        </div>
+        <div class="alert alert-success" id="profile-alert-success" style="margin-bottom:16px">
+          <span>&#10003;</span> <span id="profile-success-msg"></span>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:20px;margin-bottom:32px">
+          <div style="width:72px;height:72px;border-radius:20px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700" id="profile-avatar">U</div>
+          <div>
+            <div style="font-size:20px;font-weight:700" id="profile-full-name">-</div>
+            <div style="font-size:14px;color:var(--text3)" id="profile-email-display">-</div>
+            <div style="margin-top:6px"><span class="badge" style="font-size:11px" id="profile-plan-badge">Starter</span></div>
+          </div>
+        </div>
+
+        <form onsubmit="updateProfile(event)">
+          <div class="form-group">
+            <label class="form-label">Nome</label>
+            <input type="text" class="form-input" id="profile-name-input" placeholder="Seu nome" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" id="profile-email-input" placeholder="seu@email.com" disabled style="opacity:0.6;cursor:not-allowed" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Membro desde</label>
+            <input type="text" class="form-input" id="profile-since" disabled style="opacity:0.6;cursor:not-allowed" />
+          </div>
+          <button type="submit" class="btn btn-primary">Salvar alteracoes</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- SETTINGS SECTION -->
+    <div id="section-settings" class="profile-section">
+      <div class="dash-header">
+        <div class="dash-greeting">
+          <h1>Configuracoes &#9881;</h1>
+          <p>Personalize sua experiencia.</p>
+        </div>
+      </div>
+      <div class="dash-card" style="max-width:560px">
+        <div class="dash-card-header"><span class="dash-card-title">Preferencias</span></div>
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:16px;background:var(--bg2);border-radius:12px;border:1px solid var(--border)">
+            <div>
+              <div style="font-weight:600;font-size:14px">Notificacoes por email</div>
+              <div style="font-size:13px;color:var(--text3)">Receber alertas e atualizacoes</div>
+            </div>
+            <div style="width:44px;height:24px;background:var(--grad);border-radius:50px;cursor:pointer"></div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:16px;background:var(--bg2);border-radius:12px;border:1px solid var(--border)">
+            <div>
+              <div style="font-weight:600;font-size:14px">Autenticacao dois fatores</div>
+              <div style="font-size:13px;color:var(--text3)">Aumentar a seguranca da conta</div>
+            </div>
+            <div style="width:44px;height:24px;background:var(--bg);border-radius:50px;cursor:pointer;border:1px solid var(--border)"></div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:16px;background:var(--bg2);border-radius:12px;border:1px solid var(--border)">
+            <div>
+              <div style="font-weight:600;font-size:14px">Relatorios semanais</div>
+              <div style="font-size:13px;color:var(--text3)">Resumo de performance toda segunda</div>
+            </div>
+            <div style="width:44px;height:24px;background:var(--grad);border-radius:50px;cursor:pointer"></div>
+          </div>
+        </div>
+        <div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--border)">
+          <button onclick="logout()" class="btn btn-outline" style="border-color:var(--red);color:var(--red)">
+            &#128682; Sair da conta
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="js/dashboard.js"></script>
+</body>
+</html>
